@@ -90,9 +90,9 @@ public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.Vi
             title = itemView.findViewById(R.id.title);
             arrow = itemView.findViewById(R.id.arrow);
             constraintLayout = itemView.findViewById(R.id.actionButtonLayout);
+            int height = text.getLayoutParams().height;
 
             arrow.setOnClickListener(view -> {
-                int height = 80;
                 Model model = modelList.get(getAdapterPosition());
                 ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) text.getLayoutParams();
                 if(model.getLongView()){
@@ -108,8 +108,6 @@ public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.Vi
                 }
                 text.setLayoutParams(params);
             });
-
-
         }
     }
 }
