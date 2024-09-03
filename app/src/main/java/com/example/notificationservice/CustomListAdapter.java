@@ -62,7 +62,7 @@ public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.Vi
         button.setPadding(0,1,0,1);
         button.setBackgroundResource(R.drawable.action_button);
 
-        int width = text.length() < 6 ? ViewGroup.LayoutParams.WRAP_CONTENT : text.length()*20;
+        int width = ViewGroup.LayoutParams.WRAP_CONTENT;
         ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(width, 53);
         layoutParams.setMarginStart(10);
         layoutParams.topToBottom = topId;
