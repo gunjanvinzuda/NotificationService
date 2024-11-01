@@ -89,25 +89,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        StringBuilder stringBuilder = new StringBuilder();
-        for(Model model: modelList){
-            String pack, ticker, title, text, actions;
-
-            pack = model.getPack();
-            title = model.getTitle();
-            text = model.getText();
-            ticker = model.getTicker();
-            actions = model.getActions();
-
-            String line = pack+","+ticker+","+title+","+text+","+actions+"\n";
-            stringBuilder.append(line);
-        }
-        fileUtils.saveData(stringBuilder.toString(), "NotificationService.txt", false);
-    }
-
     void checkFileStoragePermission(){
         Button yesButton, noButton;
 
@@ -128,6 +109,25 @@ public class MainActivity extends AppCompatActivity {
                 dialog.show();
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        StringBuilder stringBuilder = new StringBuilder();
+        for(Model model: modelList){
+            String pack, ticker, title, text, actions;
+
+            pack = model.getPack();
+            title = model.getTitle();
+            text = model.getText();
+            ticker = model.getTicker();
+            actions = model.getActions();
+
+            String line = pack+","+ticker+","+title+","+text+","+actions+"\n";
+            stringBuilder.append(line);
+        }
+        fileUtils.saveData(stringBuilder.toString(), "NotificationService.txt", false);
     }
 
     BroadcastReceiver onReceive = new BroadcastReceiver() {
